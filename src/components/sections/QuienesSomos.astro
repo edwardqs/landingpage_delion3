@@ -1,0 +1,17 @@
+---
+import Container from '../core/Container.astro';
+import SectionTitle from '../core/SectionTitle.astro';
+import { site } from '../../data/site.ts';
+import astroLogo from '../../assets/images/shared/astro.svg';
+---
+<section id="nosotros" class="py-16">
+  <Container>
+    <SectionTitle title="¿ Quienes Somos ?" />
+    <div class="mt-10 grid md:grid-cols-2 gap-8 items-start">
+      <p class="text-gray-800 leading-relaxed">{site.quienesSomos}</p>
+      <div class="rounded-2xl overflow-hidden">
+        <img src={astroLogo.src} alt="Control" class="w-full h-auto" />
+      </div>
+    </div>
+  </Container>
+</section>

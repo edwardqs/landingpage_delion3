@@ -1,0 +1,9 @@
+---
+export let className = '';
+export let muted: boolean = false;
+const base = 'rounded-2xl shadow-sm';
+const surface = muted ? 'bg-gray-100' : 'bg-white';
+---
+<div class={`${base} ${surface} ${className}`}>
+  <slot />
+</div>

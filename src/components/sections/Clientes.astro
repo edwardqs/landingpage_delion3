@@ -1,0 +1,15 @@
+---
+import Container from '../components/ui/Container.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+import { site } from '../data/site';
+---
+<section class="py-16">
+  <Container>
+    <SectionTitle title="Empresas que confían en nosotros" center={false} />
+    <div class="mt-8 grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
+      {site.clientes.map(c => (
+        <div class="h-12 bg-gray-100 rounded flex items-center justify-center text-sm">{c.name}</div>
+      ))}
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,28 @@
+---
+import Container from '../core/Container.astro';
+import delionLogo from '../../assets/images/index/delion-logo.svg';
+import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
+---
+<nav class="fixed inset-x-0 top-0 h-[62px] bg-[#002269] text-white z-50">
+  <Container className="relative h-full">
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center gap-2 whitespace-nowrap">
+      <a href="/" class="inline-flex items-center" aria-label="Delion logo">
+        <img src={delionLogo.src} alt="Delion logo" class="w-[160px] leading-none" />
+      </a>
+    </div>
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-6 text-[13px] whitespace-nowrap leading-none">
+      <a href="#productos" class="hover:text-blue-200">PRODUCTOS</a>
+      <a href="#servicios" class="hover:text-blue-200">SERVICIOS</a>
+      <a href="#blog" class="hover:text-blue-200">BLOG</a>
+      <a href="#nosotros" class="hover:text-blue-200">NOSOTROS</a>
+    </div>
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-3 whitespace-nowrap leading-none">
+      <button class="inline-flex items-center gap-2 hover:text-blue-200">
+        <img src={earthGlobeIcon.src} alt="Language selector icon" class="h-5 w-5" />
+        <span class="hidden sm:inline">Español</span>
+      </button>
+      <a href="#nube" class="hidden sm:inline hover:text-blue-200">NUBE</a>
+      <a href="#contacto" class="border border-white/60 rounded-[10px] h-8 px-4 flex items-center hover:bg-white/10">CONTACTO</a>
+    </div>
+  </Container>
+</nav>

@@ -1,0 +1,25 @@
+---
+import Container from '../components/ui/Container.astro';
+import SectionTitle from '../components/ui/SectionTitle.astro';
+import Card from '../components/ui/Card.astro';
+import { site } from '../data/site';
+---
+<section id="ofrecemos" class="py-16">
+  <Container>
+    <SectionTitle title="¿ Qué Ofrecemos ?" />
+    <div class="mt-10 grid md:grid-cols-2 gap-8">
+      <Card muted className="p-6">
+        <h3 class="font-bold text-lg">Productos</h3>
+        <ul class="mt-4 space-y-2 list-disc list-inside">
+          {site.productos.map(p => <li>{p}</li>)}
+        </ul>
+      </Card>
+      <Card muted className="p-6">
+        <h3 class="font-bold text-lg">Servicios</h3>
+        <ul class="mt-4 space-y-2 list-disc list-inside">
+          {site.servicios.map(s => <li>{s}</li>)}
+        </ul>
+      </Card>
+    </div>
+  </Container>
+</section>

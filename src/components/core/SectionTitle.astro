@@ -1,0 +1,10 @@
+---
+export let title: string;
+export let subtitle: string | undefined;
+export let center: boolean = true;
+const align = center ? 'text-center' : 'text-left';
+---
+<div class={`space-y-2 ${align}`}>
+  <h2 class="text-2xl md:text-3xl font-bold">{title}</h2>
+  {subtitle && <p class="text-gray-600">{subtitle}</p>}
+</div>

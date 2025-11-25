@@ -1,0 +1,16 @@
+---
+import Container from '../components/ui/Container.astro';
+import Button from '../components/ui/Button.astro';
+import { site } from '../data/site';
+---
+<section class="relative">
+  <div class="absolute inset-0 bg-[url('/assets/background.svg')] bg-cover bg-center"></div>
+  <div class="absolute inset-0 bg-blue-900/60"></div>
+  <Container className="relative py-20">
+    <h1 class="text-white text-3xl md:text-5xl font-bold max-w-4xl">{site.hero.title}</h1>
+    <p class="text-white/80 mt-4">{site.hero.subtitle}</p>
+    <div class="mt-8">
+      <Button variant="success">{site.hero.ctaLabel}</Button>
+    </div>
+  </Container>
+</section>
