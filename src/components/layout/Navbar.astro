@@ -1,74 +1,112 @@
 ---
-import Container from '../core/Container.astro';
 import delionLogo from '../../assets/images/index/delion-logo.svg';
 import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
 ---
 
-<nav class="fixed inset-x-0 top-0 h-[70px] bg-[#002269] text-white z-50 px-[35px]">
-  <div class="relative h-full max-w-[1440px] mx-auto flex items-center justify-between">
+<nav class="fixed inset-x-0 top-0 h-[70px] bg-[#002269] text-white z-50">
+  <div class="h-full max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
     <!-- Logo a la izquierda -->
-    <div class="flex items-center">
+    <div class="flex-shrink-0">
       <a href="/" class="inline-flex items-center" aria-label="Delion logo">
-        <img src={delionLogo.src} alt="Delion" class="h-[48px] w-auto" />
+        <img src={delionLogo.src} alt="Delion" class="h-10 sm:h-12 w-auto" />
       </a>
     </div>
 
-    <!-- Menú central -->
-    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex items-center gap-8">
+    <!-- Menú para desktop -->
+    <div class="hidden lg:flex items-center gap-8">
       <div class="relative group">
-        <button class="font-['Inter', 'sans-serif'] text-[15px] font-normal tracking-wide hover:text-blue-200 transition-colors flex items-center gap-1">
+        <button class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors flex items-center gap-1">
           PRODUCTOS
           <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <!-- Dropdown -->
         <div class="hidden group-hover:block absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-lg py-2 min-w-[200px]">
-          <a href="#hardware" class="block px-4 py-2 hover:bg-gray-100 transition-colors">HARDWARE</a>
-          <a href="#software" class="block px-4 py-2 hover:bg-gray-100 transition-colors">SOFTWARE</a>
+          <a href="#hardware" class="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors">HARDWARE</a>
+          <a href="#software" class="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors">SOFTWARE</a>
         </div>
       </div>
-      <a href="#servicios" class="font-['Inter', 'sans-serif'] text-[15px] font-normal tracking-wide hover:text-blue-200 transition-colors">
-        SERVICIOS
-      </a>
-      <a href="#blog" class="font-['Inter', 'sans-serif'] text-[15px] font-normal tracking-wide hover:text-blue-200 transition-colors">
-        BLOG
-      </a>
-      <a href="#nosotros" class="font-['Inter', 'sans-serif'] text-[15px] font-normal tracking-wide hover:text-blue-200 transition-colors">
-        NOSOTROS
-      </a>
+      <a href="#servicios" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">SERVICIOS</a>
+      <a href="#blog" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">BLOG</a>
+      <a href="#nosotros" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">NOSOTROS</a>
     </div>
 
-    <!-- Zona derecha -->
-    <div class="flex items-center gap-4">
-      <!-- Selector de idioma -->
-      <button class="hidden sm:flex items-center gap-2 hover:text-blue-200 transition-colors">
+    <!-- Zona derecha (Desktop) -->
+    <div class="hidden lg:flex items-center gap-4">
+      <button class="flex items-center gap-2 hover:text-blue-200 transition-colors">
         <img src={earthGlobeIcon.src} alt="" class="h-5 w-5" />
-        <span class="font-['Inter', 'sans-serif'] text-[15px] font-medium">Español</span>
+        <span class="font-['Inter', 'sans-serif'] text-sm font-medium">Español</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-
-      <!-- Link NUBE -->
-      <a href="#nube" class="hidden md:inline font-['Inter', 'sans-serif'] text-[15px] font-medium tracking-wide hover:text-blue-200 transition-colors">
-        NUBE
-      </a>
-
-      <!-- Botón CONTACTO -->
+      <a href="#nube" class="font-['Inter', 'sans-serif'] text-sm font-medium tracking-wide hover:text-blue-200 transition-colors">NUBE</a>
       <a 
         href="#contacto" 
-        class="border border-white rounded-[13px] h-[40px] px-6 flex items-center justify-center font-['Inter', 'sans-serif'] text-[15px] font-medium tracking-wide hover:bg-white hover:text-[#002269] transition-all duration-300"
+        class="border border-white rounded-[13px] h-10 px-6 flex items-center justify-center font-['Inter', 'sans-serif'] text-sm font-medium tracking-wide hover:bg-white hover:text-[#002269] transition-all duration-300"
       >
         CONTACTO
       </a>
+    </div>
 
-      <!-- Menú móvil (hamburguesa) -->
-      <button class="lg:hidden flex flex-col gap-1.5 w-6 h-6" aria-label="Menu">
+    <!-- Menú móvil (hamburguesa) -->
+    <div class="lg:hidden">
+      <button id="mobile-menu-button" class="flex flex-col gap-1.5 w-6 h-6" aria-label="Menu">
         <span class="w-full h-0.5 bg-white rounded"></span>
         <span class="w-full h-0.5 bg-white rounded"></span>
         <span class="w-full h-0.5 bg-white rounded"></span>
       </button>
     </div>
   </div>
+
+  <!-- Menú desplegable para móvil -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#002269] absolute top-[70px] inset-x-0">
+    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <div class="relative">
+        <button id="mobile-products-button" class="w-full text-left font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors flex justify-between items-center">
+          PRODUCTOS
+          <svg id="mobile-products-arrow" class="w-5 h-5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div id="mobile-products-submenu" class="hidden pl-4 pt-2 pb-1 space-y-1">
+          <a href="#hardware" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">HARDWARE</a>
+          <a href="#software" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">SOFTWARE</a>
+        </div>
+      </div>
+      <a href="#servicios" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">SERVICIOS</a>
+      <a href="#blog" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">BLOG</a>
+      <a href="#nosotros" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">NOSOTROS</a>
+      <hr class="border-blue-500 my-2"/>
+      <a href="#nube" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">NUBE</a>
+      <a href="#contacto" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">CONTACTO</a>
+       <div class="flex justify-center pt-4">
+            <button class="flex items-center gap-2 text-white hover:text-blue-200 transition-colors">
+                <img src={earthGlobeIcon.src} alt="" class="h-5 w-5" />
+                <span class="font-['Inter', 'sans-serif'] text-sm font-medium">Español</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+       </div>
+    </div>
+  </div>
 </nav>
+
+<script>
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileProductsButton = document.getElementById('mobile-products-button');
+  const mobileProductsSubmenu = document.getElementById('mobile-products-submenu');
+  const mobileProductsArrow = document.getElementById('mobile-products-arrow');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  mobileProductsButton?.addEventListener('click', (e) => {
+    e.preventDefault();
+    mobileProductsSubmenu?.classList.toggle('hidden');
+    mobileProductsArrow?.classList.toggle('rotate-180');
+  });
+</script>
