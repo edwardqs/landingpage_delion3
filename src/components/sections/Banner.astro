@@ -1,34 +1,50 @@
 ---
-import banner from '../../assets/images/index/Gemini_Generated_Image_qi694jqi694jqi69 2.png';
-import overlay from '../../assets/images/index/Rectangle 25.svg';
+import defaultBanner from '../../assets/images/index/Gemini_Generated_Image_qi694jqi694jqi69 2.png';
+import defaultOverlay from '../../assets/images/index/Rectangle 25.svg';
+import { site } from '../../data/site';
+import 'aos/dist/aos.css';
+
+interface Props {
+  backgroundImage?: ImageMetadata;
+  overlayImage?: ImageMetadata;
+  title?: string;
+  subtitle?: string;
+}
+
+const { 
+  backgroundImage = defaultBanner, 
+  overlayImage = defaultOverlay,
+  title = site.hero.title,
+  subtitle = site.hero.subtitle
+} = Astro.props;
 ---
 <section class="relative w-full h-[320px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
   <!-- Background Images -->
-  <img src={banner.src} alt="Banner" class="absolute inset-0 w-full h-full object-cover" />
-  <img src={overlay.src} alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="opacity: 0.63" />
+  <img src={backgroundImage.src} alt="Banner" class="absolute inset-0 w-full h-full object-cover" />
+  <img src={overlayImage.src} alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover pointer-events-none" style="opacity: 0.63" />
 
   <!-- Content Container -->
-  <div class="relative z-10 h-full flex items-center">
+  <div class="relative z-10 h-full flex items-center w-full">
     <div class="w-full text-white">
-      <div class="max-w-5xl pl-5 sm:pl-7 md:pl-9 lg:pl-[220px] space-y-4 md:space-y-6 text-left">
+      <div class="w-full max-w-[1440px] mx-auto px-5 sm:px-8 md:px-12 lg:px-20 space-y-4 md:space-y-6 text-left">
         <!-- Title -->
-        <h1 class="font-['Galdeano'] font-normal text-[clamp(28px,6vw,48px)] leading-[1.2] tracking-[0.5px]">
-          <span>Soluciones innovadoras y sostenibles</span><br class="hidden md:block" />
-          <span class="whitespace-nowrap">basados en INTELIGENCIA ARTIFICIAL</span>
+        <h1 class="font-['Montserrat'] font-normal text-[clamp(24px,5vw,48px)] leading-[1.2] tracking-[0.5px] w-full max-w-[320px] sm:max-w-[480px] md:max-w-[640px] lg:max-w-[800px]" data-aos="fade-up">
+          <span class="block md:whitespace-nowrap">{title.split('basados')[0]}</span>
+          {title.includes('basados') && <span class="block md:whitespace-nowrap">basados {title.split('basados')[1]}</span>}
         </h1>
         
         <!-- Subtitle -->
-        <p class="font-['Inria Sans'] font-normal text-base sm:text-lg lg:text-xl max-w-2xl">
-          Minería 4.0, Sensores IoT, Drones, Gemelos Digitales, Sistemas&nbsp;autónomos
+        <p class="font-['Montserrat'] font-normal text-base sm:text-lg lg:text-xl max-w-4xl" data-aos="fade-up" data-aos-delay="200">
+          {subtitle}
         </p>
 
         <!-- CTA Button -->
-        <div>
+        <div data-aos="fade-up" data-aos-delay="400">
           <a 
             href="#reunion" 
-            class="inline-block bg-[#24C9CA] rounded-xl px-8 py-3.5 font-['Inter, sans-serif'] text-white text-base sm:text-lg font-medium hover:bg-cyan-500 transition-colors duration-300"
+            class="inline-block bg-gradient-to-r from-[#002699] to-[#0044FF] rounded-xl px-8 py-3.5 font-['Inter, sans-serif'] text-white text-base font-normal hover:brightness-110 transition-all duration-300"
           >
-            AGENDA UNA REUNIÓN
+            {site.hero.ctaLabel}
           </a>
         </div>
       </div>

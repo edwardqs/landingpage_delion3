@@ -1,19 +1,39 @@
 ---
 import '../styles/global.css';
+import 'aos/dist/aos.css';
 import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import Loader from '../components/ui/Loader.astro';
+
+interface Props {
+    title?: string;
+    description?: string;
+}
+
+const { 
+    title = "Delion - Ciencias e Ingeniería",
+    description = "Soluciones innovadoras y sostenibles basados en INTELIGENCIA ARTIFICIAL. Minería 4.0, Sensores IoT, Drones, Gemelos Digitales."
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <meta name="description" content={description} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Delion - Ciencias e Ingeniería</title>
+        <title>{title}</title>
     </head>
     <body>
+        <Loader />
         <Navbar />
         <main class="pt-[70px]"><slot /></main>
+        <Footer />
+        <script>
+            import AOS from "aos";
+            AOS.init();
+        </script>
     </body>
     <style>
         html,

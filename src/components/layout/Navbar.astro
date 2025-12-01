@@ -1,9 +1,13 @@
 ---
 import delionLogo from '../../assets/images/index/delion-logo.svg';
-import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
+import earthGlobeIcon from '../../assets/icons/Earth Globe.svg';
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/' || currentPath === '';
+const navBgColor = isHome ? 'bg-[#002269]' : 'bg-[#002699]';
 ---
 
-<nav class="fixed inset-x-0 top-0 h-[70px] bg-[#002269] text-white z-50">
+<nav class={`fixed inset-x-0 top-0 h-[70px] ${navBgColor} text-white z-50`}>
   <div class="h-full max-w-screen-xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
     <!-- Logo a la izquierda -->
     <div class="flex-shrink-0">
@@ -14,38 +18,46 @@ import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
 
     <!-- Menú para desktop -->
     <div class="hidden lg:flex items-center gap-8">
-      <div class="relative group">
-        <button class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors flex items-center gap-1">
-          PRODUCTOS
+      <div class="relative group h-full flex items-center">
+        <button class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors flex items-center gap-1 h-full opacity-60 hover:opacity-100">
+          Productos
           <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
-        <div class="hidden group-hover:block absolute top-full left-0 mt-2 bg-white text-gray-900 rounded-lg shadow-lg py-2 min-w-[200px]">
-          <a href="#hardware" class="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors">HARDWARE</a>
-          <a href="#software" class="block px-4 py-2 text-sm hover:bg-gray-100 transition-colors">SOFTWARE</a>
+        <!-- Invisible bridge to prevent menu closing -->
+        <div class="absolute top-full left-0 w-full h-2 bg-transparent"></div>
+        <div class="hidden group-hover:block absolute top-[calc(100%+0.5rem)] left-0 bg-[#002082] text-white rounded-[20px] shadow-lg p-2 min-w-[180px] border border-white/10" data-aos="fade-up" data-aos-duration="300">
+          <a href="/productos/hardware" class="block px-6 py-3 text-base font-normal rounded-[15px] hover:bg-gradient-to-r hover:from-[#002699] hover:to-[#0044FF] border border-transparent hover:border-white/30 transition-all duration-300 mb-1">Hardware</a>
+          <a href="/productos/software" class="block px-6 py-3 text-base font-normal rounded-[15px] hover:bg-gradient-to-r hover:from-[#002699] hover:to-[#0044FF] border border-transparent hover:border-white/30 transition-all duration-300">Software</a>
         </div>
       </div>
-      <a href="#servicios" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">SERVICIOS</a>
-      <a href="#blog" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">BLOG</a>
-      <a href="#nosotros" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors">NOSOTROS</a>
+      <a href="#servicios" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors opacity-60 hover:opacity-100">Servicios</a>
+      <a href="#nosotros" class="font-['Inter', 'sans-serif'] text-sm font-normal tracking-wide hover:text-blue-200 transition-colors opacity-60 hover:opacity-100">Nosotros</a>
     </div>
 
     <!-- Zona derecha (Desktop) -->
-    <div class="hidden lg:flex items-center gap-4">
-      <button class="flex items-center gap-2 hover:text-blue-200 transition-colors">
+    <div class="hidden lg:flex items-center gap-4 font-['Inter', 'sans-serif']">
+      <button class="flex items-center gap-2 border border-white rounded-[13px] h-10 px-4 hover:bg-white hover:text-[#002699] transition-all duration-300">
         <img src={earthGlobeIcon.src} alt="" class="h-5 w-5" />
-        <span class="font-['Inter', 'sans-serif'] text-sm font-medium">Español</span>
+        <span class="text-sm font-medium">Español</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <a href="#nube" class="font-['Inter', 'sans-serif'] text-sm font-medium tracking-wide hover:text-blue-200 transition-colors">NUBE</a>
+      <a href="#nube" class="border border-white rounded-[13px] h-10 px-6 flex items-center justify-center text-sm font-medium tracking-wide hover:bg-white hover:text-[#002699] transition-all duration-300">
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+            </svg>
+            Nube
+        </div>
+      </a>
       <a 
         href="#contacto" 
-        class="border border-white rounded-[13px] h-10 px-6 flex items-center justify-center font-['Inter', 'sans-serif'] text-sm font-medium tracking-wide hover:bg-white hover:text-[#002269] transition-all duration-300"
+        class="border border-white rounded-[13px] h-10 px-6 flex items-center justify-center text-sm font-medium tracking-wide hover:bg-white hover:text-[#002699] transition-all duration-300"
       >
-        CONTACTO
+        Contacto
       </a>
     </div>
 
@@ -60,7 +72,7 @@ import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
   </div>
 
   <!-- Menú desplegable para móvil -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-[#002269] absolute top-[70px] inset-x-0">
+  <div id="mobile-menu" class={`hidden lg:hidden ${navBgColor} absolute top-[70px] inset-x-0`}>
     <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
       <div class="relative">
         <button id="mobile-products-button" class="w-full text-left font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors flex justify-between items-center">
@@ -70,8 +82,8 @@ import earthGlobeIcon from '../../assets/icons/earth-globe.svg';
           </svg>
         </button>
         <div id="mobile-products-submenu" class="hidden pl-4 pt-2 pb-1 space-y-1">
-          <a href="#hardware" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">HARDWARE</a>
-          <a href="#software" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">SOFTWARE</a>
+          <a href="/productos/hardware" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">HARDWARE</a>
+          <a href="/productos/software" class="block px-3 py-2 rounded-md text-sm font-medium text-blue-200 hover:bg-blue-800 transition-colors">SOFTWARE</a>
         </div>
       </div>
       <a href="#servicios" class="font-['Inter', 'sans-serif'] text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-800 transition-colors">SERVICIOS</a>

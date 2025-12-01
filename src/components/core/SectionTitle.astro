@@ -1,10 +1,17 @@
 ---
-export let title: string;
-export let subtitle: string | undefined;
-export let center: boolean = true;
+interface Props {
+  title: string;
+  subtitle?: string;
+  center?: boolean;
+  titleClass?: string;
+  subtitleClass?: string;
+}
+
+const { title, subtitle, center = true, titleClass = '', subtitleClass = '' } = Astro.props;
+
 const align = center ? 'text-center' : 'text-left';
 ---
 <div class={`space-y-2 ${align}`}>
-  <h2 class="text-2xl md:text-3xl font-bold">{title}</h2>
-  {subtitle && <p class="text-gray-600">{subtitle}</p>}
+  <h2 class={`text-3xl md:text-4xl font-normal ${titleClass}`}>{title}</h2>
+  {subtitle && <p class={`text-gray-600 ${subtitleClass}`}>{subtitle}</p>}
 </div>

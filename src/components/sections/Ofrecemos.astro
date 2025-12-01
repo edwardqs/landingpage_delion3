@@ -1,25 +1,37 @@
 ---
-import Container from '../components/ui/Container.astro';
-import SectionTitle from '../components/ui/SectionTitle.astro';
-import Card from '../components/ui/Card.astro';
-import { site } from '../data/site';
+import Container from '../core/Container.astro';
+import { site } from '../../data/site';
+import checkIcon from '../../assets/icons/index/check.svg';
 ---
-<section id="ofrecemos" class="py-16">
+<section id="ofrecemos" class="py-16 font-['Inter']">
   <Container>
-    <SectionTitle title="¿ Qué Ofrecemos ?" />
-    <div class="mt-10 grid md:grid-cols-2 gap-8">
-      <Card muted className="p-6">
-        <h3 class="font-bold text-lg">Productos</h3>
-        <ul class="mt-4 space-y-2 list-disc list-inside">
-          {site.productos.map(p => <li>{p}</li>)}
+    <div class="mb-12 text-left" data-aos="fade-down">
+        <h2 class="text-3xl md:text-4xl font-normal text-[#00142C] mb-4">¿Qué ofrecemos?</h2>
+        <div class="h-[1px] w-full bg-gradient-to-r from-[#020B26] to-[#0044FF]"></div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-center gap-[40px] w-full mx-auto">
+      <div class="p-[50px] bg-white rounded-[12px] h-full w-full max-w-[528px] aspect-[528/401] shadow-[0px_4px_24px_rgba(0,0,0,0.08)] hover:shadow-[0px_8px_32px_rgba(0,0,0,0.12)] transition-shadow duration-300" data-aos="fade-up">
+        <h3 class="text-left font-normal text-[32px] mb-8 text-[#00142C]">Productos</h3>
+        <ul class="space-y-4 font-['Inter'] text-xl text-[#00142C]">
+          {site.productos.map(p => (
+            <li class="flex items-start gap-4">
+              <img src={checkIcon.src} alt="check" class="w-6 h-6 mt-1 shrink-0" />
+              <span>{p}</span>
+            </li>
+          ))}
         </ul>
-      </Card>
-      <Card muted className="p-6">
-        <h3 class="font-bold text-lg">Servicios</h3>
-        <ul class="mt-4 space-y-2 list-disc list-inside">
-          {site.servicios.map(s => <li>{s}</li>)}
+      </div>
+      <div class="p-[50px] bg-white rounded-[12px] h-full w-full max-w-[528px] aspect-[528/401] shadow-[0px_4px_24px_rgba(0,0,0,0.08)] hover:shadow-[0px_8px_32px_rgba(0,0,0,0.12)] transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-left font-normal text-[32px] mb-8 text-[#00142C]">Servicios</h3>
+        <ul class="space-y-4 font-['Inter'] text-xl text-[#00142C]">
+          {site.servicios.map(s => (
+            <li class="flex items-start gap-4">
+              <img src={checkIcon.src} alt="check" class="w-6 h-6 mt-1 shrink-0" />
+              <span>{s}</span>
+            </li>
+          ))}
         </ul>
-      </Card>
+      </div>
     </div>
   </Container>
 </section>

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Banner from '../../components/sections/Banner.astro';
+import Impacto from '../../components/sections/Impacto.astro';
+import RedSismografica from '../../components/sections/RedSismografica.astro';
+import LevantamientoTopografico from '../../components/sections/LevantamientoTopografico.astro';
+import hardwareOverlay from '../../assets/images/index/Rectangle 25.svg';
+---
+
+<Layout title="Hardware | Delion">
+  <Banner 
+    overlayImage={hardwareOverlay}
+  />
+  <Impacto />
+  <RedSismografica />
+  <LevantamientoTopografico />
+</Layout>

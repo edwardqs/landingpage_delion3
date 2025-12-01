@@ -1,0 +1,99 @@
+---
+---
+
+<section class="py-12 md:py-16">
+  <div class="w-full px-4 sm:px-6 md:px-8 lg:px-10 max-w-[1800px] mx-auto">
+    <div class="space-y-4 w-full">
+      <!-- Título -->
+      <h2 
+        class="font-['Inter'] text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] leading-[100%] tracking-[0%] text-[#00142C] font-medium text-left"
+        data-aos="fade-up"
+      >
+        <span class="font-bold">Red sismográfica</span> autónoma - IoT
+      </h2>
+
+      <!-- Línea divisoria -->
+      <div 
+        class="w-full h-[1px] bg-gradient-to-r from-[#4F3800] via-[#FFB603] to-[#FFB603]"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      ></div>
+
+      <!-- Iconos -->
+      <div class="w-full mt-8 md:mt-12 flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 items-center" data-aos="fade-up" data-aos-delay="200">
+        <img src="/src/assets/icons/productos/hardware/icon1.svg" alt="Icono 1" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon2.svg" alt="Icono 2" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon3.svg" alt="Icono 3" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon4.svg" alt="Icono 4" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon5.svg" alt="Icono 5" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon6.svg" alt="Icono 6" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+        <img src="/src/assets/icons/productos/hardware/icon7.svg" alt="Icono 7" class="h-12 w-auto sm:h-16 md:h-20 lg:h-24 object-contain hover:scale-110 transition-transform duration-300" />
+      </div>
+
+      <!-- Contenido Principal (Imágenes + Info) -->
+      <div class="w-full mt-16 md:mt-20 flex flex-col lg:flex-row gap-8 lg:gap-[40px] items-start justify-center">
+        
+      <!-- Grilla de Imágenes -->
+        <div class="w-full max-w-[600px] mx-auto lg:mx-0 flex-shrink-0 relative aspect-[600/499]" data-aos="fade-right">
+          <!-- Imagen 1 (Arriba Izquierda) -->
+          <div class="absolute top-0 left-0 w-[40.33%] h-[44.29%] overflow-hidden rounded-xl">
+            <img src="/src/assets/images/productos/hardware/1.svg" alt="Hardware 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+          
+          <!-- Imagen 2 (Arriba Derecha) -->
+          <div class="absolute top-0 left-[42.67%] w-[57.33%] h-[37.07%] overflow-hidden rounded-xl">
+            <img src="/src/assets/images/productos/hardware/2.svg" alt="Hardware 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+          
+          <!-- Imagen 3 (Abajo Izquierda) -->
+          <div class="absolute top-[47.69%] left-0 w-[40.33%] h-[52.31%] overflow-hidden rounded-xl">
+            <img src="/src/assets/images/productos/hardware/3.svg" alt="Hardware 3" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+          
+          <!-- Imagen 4 (Abajo Derecha) -->
+          <div class="absolute top-[40.28%] left-[42.67%] w-[57.33%] h-[59.72%] overflow-hidden rounded-xl">
+            <img src="/src/assets/images/productos/hardware/4.svg" alt="Hardware 4" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+          </div>
+        </div>
+
+        <!-- Información (Lado Derecho) -->
+        <div class="w-full lg:max-w-[520px] flex-grow pt-0 lg:pt-2 pl-0 lg:pl-4" data-aos="fade-left">
+          <!-- Logo DWave -->
+          <div class="mb-6">
+            <img src="/src/assets/images/productos/hardware/DWave.svg" alt="DWave" class="h-10 w-auto" />
+          </div>
+
+          <!-- Lista de Características -->
+          <ul class="space-y-4 mb-10">
+            {[
+              "Sismografía de los 3 ejes.",
+              "PPV (mm/s), Freq. (x,y,z) Hz, PVS (mm/s).",
+              "Cobertura de 15 km.",
+              "Soporte para 50 nodos sismográficos.",
+              "No necesita mantenimiento.",
+              "Banda de frecuencia: 0.5 - 250 Hz.",
+              "Rango de velocidad: 0 - 60 mm/s."
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="flex-shrink-0 w-6 h-6 rounded-full border-2 border-[#FF7A00] flex items-center justify-center mt-0.5">
+                  <svg class="w-3.5 h-3.5 text-[#FF7A00]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span class="font-['Inter'] text-[18px] text-[#00142C] leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Botón Conocer más -->
+          <a 
+            href="#contacto" 
+            class="w-[200px] h-[48px] rounded-[12px] border-[0.5px] border-transparent bg-[linear-gradient(90deg,#FF6A00_0%,#FFBA88_50.48%,#FF6A00_100%)] text-[#00142C] font-['Inter'] font-medium text-[16px] shadow-[0px_0px_100px_0px_#FFFFFF] hover:shadow-lg hover:brightness-110 transition-all duration-300 flex items-center justify-center"
+          >
+            Conocer más
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

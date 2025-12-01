@@ -1,20 +1,55 @@
 ---
-import Container from '../components/ui/Container.astro';
-import Card from '../components/ui/Card.astro';
-import SectionTitle from '../components/ui/SectionTitle.astro';
-import { site } from '../data/site';
+import Container from '../core/Container.astro';
+import SectionTitle from '../core/SectionTitle.astro';
+import { site } from '../../data/site';
+
+// Icons import
+import PeopleIcon from '../../assets/icons/index/People.svg';
+import PuzzleIcon from '../../assets/icons/index/Puzzle.svg';
+import LearningIcon from '../../assets/icons/index/Learning.svg';
+
+const icons: Record<string, ImageMetadata> = {
+  People: PeopleIcon,
+  Puzzle: PuzzleIcon,
+  Learning: LearningIcon,
+};
 ---
-<section class="bg-blue-700 text-white py-16">
-  <Container>
-    <SectionTitle title="Valor Agregado" />
-    <div class="mt-10 grid md:grid-cols-3 gap-6">
-      {site.features.map(f => (
-        <Card className="p-6">
-          <div class="mx-auto h-10 w-10 bg-gray-300 rounded mb-4"></div>
-          <h3 class="text-center font-bold">{f.title}</h3>
-          <p class="text-center text-gray-700 mt-2">{f.desc}</p>
-        </Card>
-      ))}
+
+<section class="relative font-['Inter'] pt-24 pb-12">
+  <!-- Blue background part -->
+  <div class="absolute top-0 left-0 w-full h-[453px] bg-[#0044FF] z-0"></div>
+  
+  <Container className="relative z-10">
+    <div class="mb-16 text-left" data-aos="fade-down">
+      <h2 class="text-3xl md:text-4xl font-normal text-white mb-4">Valor agregado</h2>
+      <div class="h-[1px] w-full bg-gradient-to-r from-[#4DA6FF] to-[#F0F8FF]"></div>
+    </div>
+    
+    <div class="flex flex-col md:flex-row justify-center gap-[40px] w-full mx-auto">
+      {site.features.map((feature, index) => {
+        const Icon = icons[feature.icon];
+        return (
+          <div 
+            class="bg-white rounded-[12px] px-[36px] py-[50px] flex flex-col items-start text-left shadow-[10px_10px_50px_rgba(0,20,44,0.08)] w-full max-w-[367.67px] aspect-[367.67/533]"
+            data-aos="fade-up"
+            data-aos-delay={index * 200}
+          >
+            <div class="mb-[30px] h-24 flex items-center shrink-0">
+              <img 
+                src={Icon.src} 
+                alt={feature.title} 
+                class="h-24 w-auto object-contain"
+              />
+            </div>
+            <h3 class="text-[32px] leading-tight font-normal text-black mb-[20px] w-full">
+              {feature.title}
+            </h3>
+            <p class="text-lg text-[#4B5563] leading-relaxed">
+              {feature.desc}
+            </p>
+          </div>
+        );
+      })}
     </div>
   </Container>
 </section>
